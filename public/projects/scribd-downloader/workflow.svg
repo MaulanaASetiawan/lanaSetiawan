@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="900" height="450">
+  <rect width="900" height="450" fill="#0d1117"/>
+  <rect x="14" y="14" width="872" height="422" fill="#161b22" stroke="#22c55e" stroke-width="4"/>
+  <text x="38" y="52" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="20">CARA KERJA SCRIBD BATCH DOWNLOADER (OTOMATISASI PYTHON)</text>
+
+  <rect x="40" y="100" width="250" height="200" fill="#1c2333" stroke="#38bdf8" stroke-width="3"/>
+  <text x="60" y="135" fill="#38bdf8" font-family="monospace" font-weight="bold" font-size="15">1. BATCH URL QUEUE</text>
+  <text x="60" y="170" fill="#e6edf3" font-family="monospace" font-size="13">• Input banyak URL</text>
+  <text x="60" y="195" fill="#e6edf3" font-family="monospace" font-size="13">• Validasi link &amp;</text>
+  <text x="60" y="215" fill="#e6edf3" font-family="monospace" font-size="13">  sanitasi judul</text>
+  <text x="60" y="245" fill="#94a3b8" font-family="monospace" font-size="12">• Antrean otomatis</text>
+
+  <rect x="325" y="100" width="250" height="200" fill="#1c2333" stroke="#f97316" stroke-width="3"/>
+  <text x="345" y="135" fill="#f97316" font-family="monospace" font-weight="bold" font-size="15">2. SELENIUM RENDER</text>
+  <text x="345" y="170" fill="#e6edf3" font-family="monospace" font-size="13">• Auto-scroll tiap</text>
+  <text x="345" y="190" fill="#e6edf3" font-family="monospace" font-size="13">  halaman dokumen</text>
+  <text x="345" y="220" fill="#e6edf3" font-family="monospace" font-size="13">• Injeksi CSS untuk</text>
+  <text x="345" y="240" fill="#e6edf3" font-family="monospace" font-size="13">  menyembunyikan UI</text>
+  <text x="345" y="260" fill="#e6edf3" font-family="monospace" font-size="13">  pengganggu</text>
+
+  <rect x="610" y="100" width="250" height="200" fill="#1c2333" stroke="#22c55e" stroke-width="3"/>
+  <text x="630" y="135" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="15">3. PILLOW COMPILER</text>
+  <text x="630" y="170" fill="#e6edf3" font-family="monospace" font-size="13">• Ekstraksi aset</text>
+  <text x="630" y="190" fill="#e6edf3" font-family="monospace" font-size="13">  halaman penuh</text>
+  <text x="630" y="220" fill="#e6edf3" font-family="monospace" font-size="13">• Konversi RGB &amp;</text>
+  <text x="630" y="240" fill="#e6edf3" font-family="monospace" font-size="13">  kompilasi PDF utuh</text>
+
+  <rect x="40" y="330" width="820" height="76" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="60" y="362" fill="#e6edf3" font-family="monospace" font-size="14">Menghemat waktu pengunduhan banyak dokumen referensi sekaligus dibanding proses manual satu per satu.</text>
+  <text x="60" y="386" fill="#38bdf8" font-family="monospace" font-size="14">Seluruh pemrosesan dilakukan secara terstruktur dengan penanganan error per dokumen.</text>
+</svg>

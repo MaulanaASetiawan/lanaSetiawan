@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#0d1117"/>
+  <rect x="16" y="16" width="768" height="418" fill="#161b22" stroke="#f97316" stroke-width="4"/>
+  <rect x="16" y="16" width="768" height="44" fill="#1c2333" stroke="#f97316" stroke-width="2"/>
+  <text x="36" y="44" fill="#f97316" font-family="monospace" font-weight="bold" font-size="18">[PROJECT] DUCKDOCK • ESP32 STREAM DECK &amp; MACRO CONTROLLER</text>
+
+  <!-- Device Enclosure Illustration -->
+  <rect x="60" y="86" width="340" height="240" rx="10" fill="#1c2333" stroke="#38bdf8" stroke-width="4"/>
+  <!-- OLED SSD1306 Screen -->
+  <rect x="130" y="106" width="200" height="68" fill="#05080d" stroke="#38bdf8" stroke-width="2"/>
+  <text x="148" y="132" fill="#38bdf8" font-family="monospace" font-weight="bold" font-size="14">🦆 DUCKDOCK v1.0</text>
+  <text x="148" y="152" fill="#22c55e" font-family="monospace" font-size="12">PROFILE: STREAM / DEV</text>
+  <text x="148" y="166" fill="#94a3b8" font-family="monospace" font-size="10">OLED SSD1306 128x64 I2C</text>
+
+  <!-- 10 Tactile Buttons (2 rows x 5 cols) -->
+  <g fill="#0d1117" stroke="#f97316" stroke-width="2" font-family="monospace" font-size="11">
+    <!-- Row 1 -->
+    <rect x="82" y="192" width="50" height="48" rx="4"/>
+    <rect x="144" y="192" width="50" height="48" rx="4"/>
+    <rect x="206" y="192" width="50" height="48" rx="4"/>
+    <rect x="268" y="192" width="50" height="48" rx="4"/>
+    <rect x="330" y="192" width="50" height="48" rx="4"/>
+    <!-- Row 2 -->
+    <rect x="82" y="252" width="50" height="48" rx="4"/>
+    <rect x="144" y="252" width="50" height="48" rx="4"/>
+    <rect x="206" y="252" width="50" height="48" rx="4"/>
+    <rect x="268" y="252" width="50" height="48" rx="4"/>
+    <rect x="330" y="252" width="50" height="48" rx="4"/>
+  </g>
+  <g fill="#e6edf3" font-family="monospace" font-weight="bold" font-size="11">
+    <text x="95" y="220">M1</text>
+    <text x="157" y="220">M2</text>
+    <text x="219" y="220">M3</text>
+    <text x="281" y="220">M4</text>
+    <text x="343" y="220">M5</text>
+    <text x="95" y="280">M6</text>
+    <text x="157" y="280">M7</text>
+    <text x="219" y="280">M8</text>
+    <text x="281" y="280">M9</text>
+    <text x="339" y="280">M10</text>
+  </g>
+
+  <!-- Right Spec Card -->
+  <rect x="430" y="86" width="326" height="240" fill="#1c2333" stroke="#22c55e" stroke-width="3"/>
+  <text x="452" y="122" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="16">HARDWARE ARCHITECTURE</text>
+  <text x="452" y="156" fill="#e6edf3" font-family="monospace" font-size="13">• MCU: ESP32 Dual-Core</text>
+  <text x="452" y="182" fill="#e6edf3" font-family="monospace" font-size="13">• Display: OLED SSD1306 (I2C)</text>
+  <text x="452" y="208" fill="#e6edf3" font-family="monospace" font-size="13">• Input: 10 Physical Keys</text>
+  <text x="452" y="234" fill="#e6edf3" font-family="monospace" font-size="13">  (Debounce &amp; Multi-layer)</text>
+  <text x="452" y="264" fill="#38bdf8" font-family="monospace" font-weight="bold" font-size="13">• Mode: BLE HID / USB Macro</text>
+  <text x="452" y="290" fill="#f97316" font-family="monospace" font-size="12">  OBS, Media, IDE Shortcuts</text>
+
+  <rect x="60" y="348" width="696" height="54" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="80" y="380" fill="#e6edf3" font-family="monospace" font-size="14">STACK: ESP32 • C++ / Arduino • OLED SSD1306 • 10 Push Buttons • HID Keyboard</text>
+</svg>

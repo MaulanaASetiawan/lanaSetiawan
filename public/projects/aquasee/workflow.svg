@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460">
+  <rect width="900" height="460" fill="#0d1117"/>
+  <rect x="14" y="14" width="872" height="432" fill="#161b22" stroke="#38bdf8" stroke-width="4"/>
+  <text x="38" y="52" fill="#f97316" font-family="monospace" font-weight="bold" font-size="20">ARSITEKTUR &amp; CARA KERJA SISTEM AQUASEE (END-TO-END)</text>
+  <text x="38" y="76" fill="#94a3b8" font-family="monospace" font-size="14">Alur otomatis dari pembacaan sensor air hingga kontrol aktuator Fuzzy Sugeno &amp; pemantauan Android</text>
+
+  <!-- Step 1 -->
+  <rect x="38" y="110" width="180" height="190" fill="#1c2333" stroke="#38bdf8" stroke-width="3"/>
+  <text x="54" y="140" fill="#38bdf8" font-family="monospace" font-weight="bold" font-size="15">1. INPUT SENSOR</text>
+  <text x="54" y="172" fill="#e6edf3" font-family="monospace" font-size="13">• Sensor Suhu</text>
+  <text x="54" y="194" fill="#e6edf3" font-family="monospace" font-size="13">  (DS18B20)</text>
+  <text x="54" y="222" fill="#e6edf3" font-family="monospace" font-size="13">• Sensor pH Air</text>
+  <text x="54" y="250" fill="#e6edf3" font-family="monospace" font-size="13">• Kekeruhan /</text>
+  <text x="54" y="272" fill="#e6edf3" font-family="monospace" font-size="13">  Kualitas Air</text>
+
+  <path d="M218 205 L252 205" stroke="#f97316" stroke-width="3"/>
+  <polygon points="248,199 260,205 248,211" fill="#f97316"/>
+
+  <!-- Step 2 -->
+  <rect x="260" y="110" width="200" height="190" fill="#1c2333" stroke="#f97316" stroke-width="3"/>
+  <text x="276" y="140" fill="#f97316" font-family="monospace" font-weight="bold" font-size="15">2. ESP32 &amp; FUZZY</text>
+  <text x="276" y="172" fill="#e6edf3" font-family="monospace" font-size="13">• Fuzzifikasi Input</text>
+  <text x="276" y="198" fill="#e6edf3" font-family="monospace" font-size="13">• Rule Base Evaluation</text>
+  <text x="276" y="224" fill="#e6edf3" font-family="monospace" font-size="13">• Defuzzifikasi</text>
+  <text x="276" y="246" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="13">  (Weighted Average)</text>
+  <text x="276" y="276" fill="#94a3b8" font-family="monospace" font-size="12">Output: Durasi Detik</text>
+
+  <path d="M460 205 L494 205" stroke="#f97316" stroke-width="3"/>
+  <polygon points="490,199 502,205 490,211" fill="#f97316"/>
+
+  <!-- Step 3 -->
+  <rect x="502" y="110" width="170" height="190" fill="#1c2333" stroke="#22c55e" stroke-width="3"/>
+  <text x="518" y="140" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="15">3. AKTUATOR</text>
+  <text x="518" y="172" fill="#e6edf3" font-family="monospace" font-size="13">• Relay Pompa</text>
+  <text x="518" y="194" fill="#e6edf3" font-family="monospace" font-size="13">  Kuras / Isi</text>
+  <text x="518" y="222" fill="#e6edf3" font-family="monospace" font-size="13">• Heater / Cooler</text>
+  <text x="518" y="250" fill="#e6edf3" font-family="monospace" font-size="13">• Aktif sesuai</text>
+  <text x="518" y="272" fill="#22c55e" font-family="monospace" font-size="13">  durasi Fuzzy</text>
+
+  <path d="M672 205 L706 205" stroke="#f97316" stroke-width="3"/>
+  <polygon points="702,199 714,205 702,211" fill="#f97316"/>
+
+  <!-- Step 4 -->
+  <rect x="714" y="110" width="148" height="190" fill="#1c2333" stroke="#a78bfa" stroke-width="3"/>
+  <text x="726" y="140" fill="#a78bfa" font-family="monospace" font-weight="bold" font-size="15">4. ANDROID</text>
+  <text x="726" y="172" fill="#e6edf3" font-family="monospace" font-size="13">• Antares Cloud</text>
+  <text x="726" y="198" fill="#e6edf3" font-family="monospace" font-size="13">• App Kotlin</text>
+  <text x="726" y="224" fill="#e6edf3" font-family="monospace" font-size="13">• Real-time</text>
+  <text x="726" y="246" fill="#e6edf3" font-family="monospace" font-size="13">  Monitoring</text>
+  <text x="726" y="274" fill="#38bdf8" font-family="monospace" font-size="12">• Log Riwayat</text>
+
+  <!-- Validation Footer -->
+  <rect x="38" y="330" width="824" height="90" fill="#0d1117" stroke="#f97316" stroke-width="2"/>
+  <text x="58" y="362" fill="#f97316" font-family="monospace" font-weight="bold" font-size="16">VALIDASI AKURASI METODE FUZZY SUGENO (UJI MAPE):</text>
+  <text x="58" y="390" fill="#e6edf3" font-family="monospace" font-size="14">Perbandingan output durasi aktuator pada mikrokontroler ESP32 vs perhitungan manual/MATLAB menghasilkan</text>
+  <text x="58" y="408" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="14">nilai galat MAPE sangat rendah (&lt; 2%), membuktikan keputusan durasi pompa/aktuator presisi dan stabil.</text>
+</svg>

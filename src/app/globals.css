@@ -1,0 +1,1670 @@
+/* ==========================================================
+   GLOBALS.CSS — Consolidated Pixel-Art Portfolio Stylesheet
+   Includes:
+   - Dual Theme Color System (Cyberpunk Dark & Maritime Light)
+   - WCAG AA Contrast Improvements (Audit S2)
+   - Mobile Readable Font Sizes >= 10px (Audit T4)
+   - Touch Targets >= 44x44px & Contact Safe Padding (Audit S3)
+   - Interactive Project Detail Modal with 4 Tabs
+   - Reduced Motion Support (Audit S5)
+   ========================================================== */
+
+/* ── Dark Mode (Default) ── Cyberpunk Blue-Orange ──────── */
+[data-theme="dark"] {
+  --bg-primary:       #0d1117;
+  --bg-secondary:     #161b22;
+  --bg-tertiary:      #1c2333;
+  --text-primary:     #e6edf3;
+  --text-secondary:   #b1bac4;
+  --text-muted:       #94a3b8; /* Dinaikkan dari #6e7681 -> kontras > 6.2:1 (Audit S2) */
+  --accent:           #f97316;
+  --accent-hover:     #fb923c;
+  --accent-secondary: #38bdf8;
+  --accent-glow:      rgba(249, 115, 22, 0.22);
+  --border:           #f97316;
+  --border-muted:     #30363d;
+  --card-bg:          #161f2e;
+  --card-hover:       #1e293b;
+  --pixel-shadow:     #000000;
+  --nav-bg:           rgba(13, 17, 23, 0.94);
+  --hp-bar:           #22c55e;
+  --hp-bar-bg:        #1e3a2f;
+  --overlay:          rgba(9, 13, 20, 0.82);
+  --particle-1:       #f97316;
+  --particle-2:       #38bdf8;
+  --particle-3:       #a78bfa;
+  --particle-4:       #22c55e;
+  --scanline:         rgba(0, 0, 0, 0.08);
+  --ornament:         #f97316;
+  --ornament-alt:     #38bdf8;
+  --game-bg:          #0d1117;
+  --game-ground:      #30363d;
+  --game-player:      #38bdf8;
+  --game-obstacle:    #f97316;
+  --game-cloud:       #1c2333;
+  --game-text:        #e6edf3;
+  --float-bg:         rgba(22, 27, 34, 0.94);
+}
+
+/* ── Light Mode ── Krem Pasir & Biru Navy (Maritime) ───── */
+[data-theme="light"] {
+  --bg-primary:       #f5efe4;
+  --bg-secondary:     #ebe3d4;
+  --bg-tertiary:      #e0d8c8;
+  --text-primary:     #1a2744;
+  --text-secondary:   #2d3f5e;
+  --text-muted:       #4a5d7c; /* Kontras tinggi di atas krem */
+  --accent:           #2c5282;
+  --accent-hover:     #1e3a5f;
+  --accent-secondary: #b4690e;
+  --accent-glow:      rgba(44, 82, 130, 0.16);
+  --border:           #1a2744;
+  --border-muted:     #b8ab8e;
+  --card-bg:          #ece5d6;
+  --card-hover:       #e2dace;
+  --pixel-shadow:     #1a2744;
+  --nav-bg:           rgba(245, 239, 228, 0.95);
+  --hp-bar:           #2c5282;
+  --hp-bar-bg:        #d5cfc2;
+  --overlay:          rgba(26, 39, 68, 0.72);
+  --particle-1:       #1a2744;
+  --particle-2:       #2c5282;
+  --particle-3:       #c78c3a;
+  --particle-4:       #4a5d7c;
+  --scanline:         rgba(26, 39, 68, 0.035);
+  --ornament:         #2c5282;
+  --ornament-alt:     #c78c3a;
+  --game-bg:          #f5efe4;
+  --game-ground:      #1a2744;
+  --game-player:      #2c5282;
+  --game-obstacle:    #c78c3a;
+  --game-cloud:       #ebe3d4;
+  --game-text:        #1a2744;
+  --float-bg:         rgba(235, 227, 212, 0.95);
+}
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  line-height: 1.7;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Custom Pixel Cursors ─────────────────────────────────── */
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 16 16'%3E%3Cpath d='M1 1h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1 1h1v1H5zm1 1h1v1H6zm1 1h1v1H7zm0 1h1v1H7zm0 1h1v1H7zm0 1h1v1H7zm-1-1h1v1H6zm-1 0h1v1H5zm-1-1h1v1H4zm-1 0h1v1H3zm-1 0h1v1H2zm-1 1h1v1H1z' fill='%23e6edf3'/%3E%3Cpath d='M0 0h1v14H0zm1 0v1h1V0zm1 1v1h1V1zm1 1v1h1V2zm1 1v1h1V3zm1 1v1h1V4zm1 1v1h1V5zm1 1v1h5V6zm0 1v1h1V7zm0 1v1h1V8zm0 1v3h1V9zm-1 0v1h1V9zm-1 0v1h1V9zm-1 0v2h1V9zm-1 1v2h1v-2zm-1 1v2h1v-2zm-1 1v1h1v-1z' fill='%231a2744'/%3E%3C/svg%3E") 0 0, auto;
+}
+
+a, button, [role="button"], .nav-link, .floating-btn, .project-link, .contact-link {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='20' viewBox='0 0 14 16'%3E%3Crect x='4' y='0' width='6' height='2' fill='%23f97316'/%3E%3Crect x='3' y='2' width='8' height='2' fill='%23f97316'/%3E%3Crect x='3' y='4' width='8' height='2' fill='%23f97316'/%3E%3Crect x='3' y='6' width='8' height='4' fill='%23f97316'/%3E%3Crect x='5' y='10' width='4' height='2' fill='%23f97316'/%3E%3Crect x='5' y='12' width='4' height='2' fill='%23f97316'/%3E%3Crect x='6' y='14' width='2' height='2' fill='%23f97316'/%3E%3C/svg%3E") 6 0, pointer;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-pixel), 'Press Start 2P', monospace;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+h1 { font-size: clamp(1.5rem, 4.2vw, 2.8rem); color: var(--accent); }
+h2 { font-size: clamp(0.95rem, 2.2vw, 1.35rem); color: var(--text-primary); margin-bottom: 0.75rem; }
+h3 { font-size: clamp(0.75rem, 1.4vw, 0.92rem); color: var(--accent); }
+
+p {
+  font-size: clamp(0.85rem, 1.1vw, 0.96rem);
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* ── Keyframes ────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes audioPulse {
+  0%, 100% { box-shadow: 2px 2px 0 var(--pixel-shadow); }
+  50% { box-shadow: 2px 2px 0 var(--pixel-shadow), 0 0 14px 3px var(--accent-glow); }
+}
+
+@keyframes scanlineScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 4px; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Pixel Border Utilities ───────────────────────────────── */
+.pixel-border {
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 0 var(--pixel-shadow), -1px -1px 0 0 var(--border-muted);
+  position: relative;
+}
+
+.pixel-border-sm {
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0 0 var(--pixel-shadow);
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+section {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6.5rem;
+  padding-bottom: 4rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2::before {
+  content: '> ';
+  color: var(--accent);
+}
+
+.section-header p {
+  margin: 0.6rem auto 0;
+  max-width: 660px;
+  text-align: center;
+}
+
+/* ── Navigation Bar ───────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--border);
+  padding: 0.55rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+}
+
+.mobile-drawer-header {
+  display: none;
+}
+
+.nav-link {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.625rem;
+  color: var(--text-secondary);
+  padding: 0.65rem 0.85rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--accent-glow);
+}
+
+.theme-toggle-nav,
+.hamburger-retro {
+  background: transparent;
+  border: 2px solid var(--border-muted);
+  color: var(--text-primary);
+  font-size: 1rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-nav:hover,
+.hamburger-retro:hover,
+.hamburger-retro.is-open {
+  border-color: var(--border);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.hamburger-retro {
+  display: none;
+}
+
+/* ── Hero Section ─────────────────────────────────────────── */
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.availability-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--card-bg);
+  border-color: var(--hp-bar);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  background: var(--hp-bar);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--hp-bar);
+}
+
+.hero-greeting {
+  font-family: var(--font-pixel), monospace;
+  font-size: clamp(0.625rem, 1vw, 0.72rem);
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  letter-spacing: 1.5px;
+}
+
+.hero-name {
+  margin-bottom: 0.35rem;
+}
+
+.hero-fullname {
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.typing-container {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  min-height: 2.1em;
+  margin-bottom: 0.75rem;
+}
+
+.typing-text {
+  font-family: var(--font-pixel), monospace;
+  font-size: clamp(0.65rem, 1.3vw, 0.88rem);
+  color: var(--accent-secondary);
+}
+
+.typing-cursor {
+  display: inline-block;
+  font-family: var(--font-pixel), monospace;
+  font-size: clamp(0.65rem, 1.3vw, 0.88rem);
+  color: var(--accent);
+  animation: blink 0.7s step-end infinite;
+  margin-left: 4px;
+}
+
+.hero-bio {
+  font-size: clamp(0.86rem, 1.15vw, 0.96rem);
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.85;
+  text-align: center;
+}
+
+.hero-bio strong {
+  color: var(--text-primary);
+}
+
+/* ── Hero CTA Buttons (Perbaikan Audit T3) ────────────────── */
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: 2.2rem;
+}
+
+.btn-pixel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.65rem;
+  background: var(--accent);
+  color: #0d1117;
+  border: 2px solid var(--border);
+  box-shadow: 3px 3px 0 0 var(--pixel-shadow);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .btn-pixel {
+  color: #ffffff;
+}
+
+.btn-pixel:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+  color: #0d1117;
+  box-shadow: 4px 4px 0 0 var(--pixel-shadow);
+}
+
+[data-theme="light"] .btn-pixel:hover {
+  color: #ffffff;
+}
+
+.btn-pixel-alt {
+  background: var(--card-bg);
+  color: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+}
+
+.btn-pixel-alt:hover {
+  background: var(--accent-glow);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-pixel-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-muted);
+}
+
+.btn-pixel-ghost:hover {
+  background: var(--card-hover);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-pixel-sm {
+  font-size: 0.625rem;
+  padding: 0.5rem 0.9rem;
+}
+
+/* ── RPG Status Bar ───────────────────────────────────────── */
+.status-bar {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.15rem 1.5rem;
+  background: var(--card-bg);
+  text-align: left;
+  max-width: 470px;
+  width: 100%;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.status-label {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.625rem; /* Minimum 10px */
+  color: var(--text-muted);
+  min-width: 65px;
+}
+
+.status-value {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.hp-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hp-bar {
+  flex: 1;
+  height: 12px;
+  background: var(--hp-bar-bg);
+  border: 2px solid var(--border-muted);
+  overflow: hidden;
+}
+
+.hp-fill {
+  height: 100%;
+  background: var(--hp-bar);
+  transition: width 1.2s ease;
+}
+
+.hp-text {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.625rem;
+  color: var(--hp-bar);
+  min-width: 68px;
+  text-align: right;
+}
+
+.easter-egg-wrap {
+  margin-top: 1.25rem;
+}
+
+.easter-egg-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.45rem 0.9rem;
+  background: transparent;
+  border: 1px dashed var(--border-muted);
+  color: var(--text-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.76rem;
+  opacity: 0.78;
+  transition: all 0.25s ease;
+}
+
+.easter-egg-trigger:hover {
+  opacity: 1;
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+/* ── About Section (Perbaikan Audit T2) ───────────────────── */
+.about-layout {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-intro {
+  background: var(--card-bg);
+  padding: 1.6rem;
+}
+
+.about-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-summary-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.85;
+  max-width: 100%;
+}
+
+.about-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.2rem;
+}
+
+.about-card {
+  background: var(--card-bg);
+  padding: 1.35rem;
+  transition: all 0.25s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-3px);
+  background: var(--card-hover);
+  border-color: var(--accent);
+}
+
+.about-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-card-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.about-card-title {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.about-card-period {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--accent-secondary);
+  margin-top: 0.15rem;
+}
+
+.about-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── Tech Stack Section ───────────────────────────────────── */
+.tech-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tech-category-title {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.68rem;
+  color: var(--accent-secondary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 2px dashed var(--border-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tech-category-icon {
+  font-size: 1.1rem;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.85rem;
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1rem 0.65rem;
+  background: var(--card-bg);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  background: var(--card-hover);
+  border-color: var(--accent);
+}
+
+.tech-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.tech-label {
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.75rem; /* Minimum 12px agar sangat jelas di HP & Desktop (Audit T4) */
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.tech-card:hover .tech-label {
+  color: var(--accent);
+}
+
+/* ── Projects Section ─────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.6rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: var(--card-bg);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  background: var(--card-hover);
+  border-color: var(--accent);
+}
+
+.project-cover-wrap {
+  position: relative;
+  border: 2px solid var(--border-muted);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.project-cover-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-cover-wrap:hover .project-cover-img {
+  transform: scale(1.02);
+}
+
+.project-folder-chip {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(13, 17, 23, 0.88);
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  font-family: var(--font-mono), monospace;
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.project-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.project-icon {
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.project-title {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.72rem;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  line-height: 1.5;
+}
+
+.project-role-badge {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--accent-secondary);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.project-link {
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.75rem; /* >= 12px (Audit T4) */
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-secondary);
+  border: 2px solid var(--border-muted);
+  background: var(--bg-secondary);
+  padding: 0.35rem 0.7rem;
+  transition: all 0.2s ease;
+}
+
+.project-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  color: var(--accent);
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 0.9rem;
+}
+
+.project-quick-highlights {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--accent);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.project-quick-highlights strong {
+  color: var(--text-primary);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+.tag {
+  font-family: var(--font-mono), monospace;
+  font-weight: 600;
+  font-size: 0.72rem; /* >= 11.5px (Audit T4) */
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-muted);
+  padding: 0.2rem 0.55rem;
+  background: var(--bg-secondary);
+}
+
+.project-card-actions {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn-selengkapnya {
+  flex: 1 1 100%;
+  min-height: 44px;
+  background: var(--accent);
+  color: #0d1117;
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0 var(--pixel-shadow);
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.55rem 0.9rem;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .btn-selengkapnya {
+  color: #ffffff;
+}
+
+.btn-selengkapnya:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-cara-kerja {
+  flex: 1;
+  min-height: 42px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-muted);
+  font-family: var(--font-mono), monospace;
+  font-weight: 600;
+  font-size: 0.76rem;
+  padding: 0.45rem 0.65rem;
+  transition: all 0.2s ease;
+}
+
+.btn-cara-kerja:hover {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+  background: var(--accent-glow);
+}
+
+/* ── Project Detail Modal ("Tab Selengkapnya") ────────────── */
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  background: var(--overlay);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.project-modal-box {
+  background: var(--bg-primary);
+  max-width: 920px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--border);
+}
+
+.project-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.project-modal-icon {
+  font-size: 1.8rem;
+}
+
+.project-modal-title {
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.project-modal-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.modal-close-btn {
+  min-height: 44px;
+  padding: 0.45rem 0.9rem;
+  background: var(--card-bg);
+  border: 2px solid var(--border-muted);
+  color: var(--text-primary);
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.modal-close-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.project-modal-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--bg-tertiary);
+  border-bottom: 2px solid var(--border-muted);
+  padding: 0.4rem 1rem 0;
+  gap: 0.4rem;
+}
+
+.modal-tab-btn {
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  background: transparent;
+  border: 2px solid transparent;
+  border-bottom: none;
+  color: var(--text-secondary);
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.modal-tab-btn:hover {
+  color: var(--accent);
+}
+
+.modal-tab-btn.is-active {
+  background: var(--bg-primary);
+  color: var(--accent);
+  border-color: var(--border);
+}
+
+.project-modal-body {
+  padding: 1.4rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.overview-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.meta-box {
+  background: var(--card-bg);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.meta-label {
+  font-size: 0.72rem;
+  color: var(--accent-secondary);
+  font-weight: 700;
+}
+
+.meta-value {
+  font-size: 0.86rem;
+  color: var(--text-primary);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.story-card {
+  background: var(--card-bg);
+  padding: 1.1rem;
+}
+
+.story-heading {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.55rem;
+}
+
+.story-card p {
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+.workflow-diagram-box {
+  background: var(--card-bg);
+  padding: 0.9rem;
+}
+
+.workflow-diagram-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+}
+
+.folder-badge {
+  background: var(--bg-primary);
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border-muted);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+}
+
+.workflow-diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border-muted);
+}
+
+.workflow-steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.workflow-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: var(--card-bg);
+  padding: 0.85rem 1rem;
+}
+
+.step-number {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  background: var(--bg-primary);
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.step-text {
+  font-size: 0.86rem;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.assets-folder-banner {
+  background: var(--card-bg);
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+}
+
+.assets-folder-banner code {
+  color: var(--accent-secondary);
+  font-weight: 700;
+}
+
+.asset-viewer {
+  background: var(--card-bg);
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.asset-stage {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-muted);
+  margin-bottom: 0.75rem;
+}
+
+.asset-main-img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  display: block;
+}
+
+.asset-caption-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.asset-title {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.asset-caption {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.asset-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.asset-thumb-btn {
+  background: var(--card-bg);
+  padding: 0.5rem;
+  text-align: left;
+  color: var(--text-secondary);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.asset-thumb-btn img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border: 1px solid var(--border-muted);
+}
+
+.asset-thumb-btn.is-selected {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.metric-card {
+  background: var(--card-bg);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.metric-value {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.82rem;
+  color: var(--accent);
+  line-height: 1.5;
+}
+
+.metric-detail {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.project-modal-footer {
+  padding: 0.9rem 1.4rem;
+  background: var(--bg-secondary);
+  border-top: 2px solid var(--border-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.modal-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* ── Contact Section (Perbaikan Audit K1 & S3) ────────────── */
+.contact-section {
+  background: var(--bg-secondary);
+  border-top: 3px solid var(--border);
+  padding-bottom: 6.5rem; /* Ruang aman dari floating controls di HP (Audit S3) */
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.email-copy-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  background: var(--card-bg);
+  padding: 0.65rem 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.email-address-text {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.copy-email-btn {
+  min-height: 40px;
+  padding: 0.4rem 0.85rem;
+  background: var(--accent);
+  color: #0d1117;
+  border: 2px solid var(--border);
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.76rem;
+}
+
+[data-theme="light"] .copy-email-btn {
+  color: #ffffff;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.82rem; /* >= 13px (Audit T4) */
+  transition: all 0.25s ease;
+}
+
+.contact-link:hover {
+  transform: translateY(-3px);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.contact-icon {
+  font-size: 1.15rem;
+}
+
+.footer-bottom {
+  margin-top: 2.5rem;
+}
+
+.footer-text {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.footer-text .accent {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Floating Controls (Target Sentuh >= 44x44px — Audit S3) ─ */
+.floating-controls {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.floating-btn {
+  background: var(--float-bg);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--border-muted);
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  width: 46px;
+  height: 46px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.floating-btn:hover,
+.floating-btn.is-active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.floating-btn.is-active.audio-toggle {
+  animation: audioPulse 1.5s ease-in-out infinite;
+}
+
+/* ── Side Ornaments & CRT Overlay ─────────────────────────── */
+.side-ornament {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 0.12;
+  pointer-events: none;
+  display: none;
+}
+
+.side-ornament-left { left: 1.5rem; }
+.side-ornament-right { right: 1.5rem; }
+
+.side-ornament-left::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow:
+    12px 0 0 var(--ornament), 16px 0 0 var(--ornament),
+    12px 4px 0 var(--ornament), 16px 4px 0 var(--ornament),
+    8px 8px 0 var(--ornament), 12px 8px 0 var(--ornament), 16px 8px 0 var(--ornament), 20px 8px 0 var(--ornament),
+    12px 12px 0 var(--ornament), 16px 12px 0 var(--ornament),
+    8px 16px 0 var(--ornament), 12px 16px 0 var(--ornament), 16px 16px 0 var(--ornament), 20px 16px 0 var(--ornament),
+    4px 20px 0 var(--ornament), 8px 20px 0 var(--ornament), 20px 20px 0 var(--ornament), 24px 20px 0 var(--ornament),
+    0px 24px 0 var(--ornament), 4px 24px 0 var(--ornament), 24px 24px 0 var(--ornament), 28px 24px 0 var(--ornament),
+    12px 36px 0 var(--ornament-alt), 16px 36px 0 var(--ornament-alt),
+    12px 48px 0 var(--ornament), 16px 48px 0 var(--ornament);
+}
+
+.side-ornament-right::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow:
+    0px 0px 0 var(--ornament), 8px 0px 0 var(--ornament), 16px 0px 0 var(--ornament), 24px 0px 0 var(--ornament),
+    0px 4px 0 var(--ornament-alt), 4px 4px 0 var(--ornament-alt), 8px 4px 0 var(--ornament-alt), 12px 4px 0 var(--ornament-alt),
+    16px 4px 0 var(--ornament-alt), 20px 4px 0 var(--ornament-alt), 24px 4px 0 var(--ornament-alt),
+    0px 8px 0 var(--ornament-alt), 24px 8px 0 var(--ornament-alt),
+    0px 12px 0 var(--ornament-alt), 8px 12px 0 var(--ornament), 12px 12px 0 var(--ornament), 16px 12px 0 var(--ornament), 24px 12px 0 var(--ornament-alt),
+    0px 16px 0 var(--ornament-alt), 24px 16px 0 var(--ornament-alt),
+    0px 20px 0 var(--ornament-alt), 4px 20px 0 var(--ornament-alt), 8px 20px 0 var(--ornament-alt), 12px 20px 0 var(--ornament-alt),
+    16px 20px 0 var(--ornament-alt), 20px 20px 0 var(--ornament-alt), 24px 20px 0 var(--ornament-alt),
+    0px 24px 0 var(--ornament), 8px 24px 0 var(--ornament), 16px 24px 0 var(--ornament), 24px 24px 0 var(--ornament);
+}
+
+.crt-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+body.crt-active .crt-overlay {
+  display: block;
+}
+
+.crt-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    var(--scanline) 0px,
+    var(--scanline) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanlineScroll 0.15s linear infinite;
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  image-rendering: pixelated;
+  will-change: transform, opacity;
+}
+
+/* ── Mini-Game Modal ──────────────────────────────────────── */
+.game-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2300;
+  background: var(--overlay);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.game-modal.is-open {
+  display: flex;
+}
+
+.game-container {
+  background: var(--bg-primary);
+  padding: 1.1rem;
+  max-width: 680px;
+  width: 100%;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.game-title {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+.game-close {
+  background: none;
+  border: 2px solid var(--border-muted);
+  color: var(--text-primary);
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 0.85rem;
+}
+
+.game-canvas-wrap {
+  background: var(--game-bg);
+  border: 2px solid var(--border-muted);
+  display: flex;
+  justify-content: center;
+}
+
+.game-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  image-rendering: pixelated;
+}
+
+.game-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ── Responsive Breakpoints ───────────────────────────────── */
+@media (min-width: 1200px) {
+  .side-ornament {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 4.5rem 0 3.5rem;
+  }
+
+  #hero {
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hamburger-retro {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 78%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--bg-primary);
+    border-left: 3px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1.25rem 2rem;
+    gap: 0.5rem;
+    transition: right 0.3s ease;
+    z-index: 1050;
+  }
+
+  .nav-links.is-open {
+    right: 0;
+  }
+
+  .mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px dashed var(--border-muted);
+  }
+
+  .mobile-drawer-title {
+    font-family: var(--font-pixel), monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+  }
+
+  .drawer-close-btn {
+    min-width: 44px;
+    min-height: 44px;
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+  }
+
+  .nav-link {
+    font-size: 0.7rem;
+    padding: 0.85rem;
+    width: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-link {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Perbaikan Audit T4: Pastikan semua teks label di HP >= 11px */
+  .tech-label,
+  .status-label,
+  .status-value,
+  .hp-text,
+  .project-link,
+  .contact-link span,
+  .tag {
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+}
+
+/* ── Accessibility: Reduced Motion (Perbaikan Audit S5) ────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .crt-overlay {
+    display: none !important;
+  }
+}
