@@ -456,6 +456,30 @@ section {
   border-color: var(--accent);
 }
 
+[data-theme="light"] .btn-pixel.btn-pixel-alt {
+  background: var(--accent-secondary);
+  color: #ffffff;
+  border-color: var(--accent-secondary);
+}
+
+[data-theme="light"] .btn-pixel.btn-pixel-alt:hover {
+  background: #ffffff;
+  color: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+}
+
+[data-theme="light"] .btn-pixel.btn-pixel-ghost {
+  background: var(--game-ground);
+  color: #ffffff;
+  border-color: var(--game-ground);
+}
+
+[data-theme="light"] .btn-pixel.btn-pixel-ghost:hover {
+  background: #ffffff;
+  color: var(--game-ground);
+  border-color: var(--game-ground);
+}
+
 .btn-pixel-sm {
   font-size: 0.625rem;
   padding: 0.5rem 0.9rem;

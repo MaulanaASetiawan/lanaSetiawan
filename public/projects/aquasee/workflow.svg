@@ -32,8 +32,8 @@
   <rect x="502" y="110" width="170" height="190" fill="#1c2333" stroke="#22c55e" stroke-width="3"/>
   <text x="518" y="140" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="15">3. AKTUATOR</text>
   <text x="518" y="172" fill="#e6edf3" font-family="monospace" font-size="13">• Relay Pompa</text>
-  <text x="518" y="194" fill="#e6edf3" font-family="monospace" font-size="13">  Kuras / Isi</text>
-  <text x="518" y="222" fill="#e6edf3" font-family="monospace" font-size="13">• Heater / Cooler</text>
+  <text x="518" y="194" fill="#e6edf3" font-family="monospace" font-size="13">  Air / pH</text>
+  <text x="518" y="222" fill="#e6edf3" font-family="monospace" font-size="13">• Heater</text>
   <text x="518" y="250" fill="#e6edf3" font-family="monospace" font-size="13">• Aktif sesuai</text>
   <text x="518" y="272" fill="#22c55e" font-family="monospace" font-size="13">  durasi Fuzzy</text>
 

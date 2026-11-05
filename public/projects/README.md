@@ -9,10 +9,14 @@ public/projects/
 │   ├── scanner-recommendations.png # Mockup HD fitur Scan Nilai Gizi & Rekomendasi Makanan
 │   ├── health-dashboard-darkmode.png # Mockup HD Profil Medis, Kalori Harian & Dark Mode
 │   └── workflow.svg          # Diagram arsitektur Android MVVM + CameraX + Retrofit2 + Cloud ML
-├── aquasee/                  # Proyek 2: AQUASEE (Smart Aquarium IoT & Android)
-│   ├── cover.svg             # Gambar sampul kartu proyek
-│   ├── workflow.svg          # Diagram alur cara kerja (Sensor -> ESP32 Fuzzy Sugeno -> Antares -> Android)
-│   └── mobile-dashboard.svg  # Tampilan aplikasi monitoring Android (Kotlin)
+├── aquasee/                  # Proyek 2: AQUASEE (Smart Aquarium IoT, Fuzzy Sugeno, OLED SSD1306 & Android)
+│   ├── aquarium-real.jpg     # Foto implementasi fisik nyata instalasi alat & akuarium AQUASEE
+│   ├── android-overview.jpg  # Tangkapan layar asli Tab Overview & status aktuator di aplikasi Android
+│   ├── android-chart.jpg     # Tangkapan layar asli Tab Grafik Parameter Air (1415 data) & download
+│   ├── mobile-dashboard.svg  # Mockup dual-phone showcase antarmuka aplikasi Android (Overview & Grafik)
+│   ├── oled-states.svg       # Visualisasi 4 State layar OLED SSD1306 (128x64): Monitoring, Aktuator, Priming, EEPROM
+│   ├── cover.svg             # Gambar ilustrasi sistem
+│   └── workflow.svg          # Diagram alur cara kerja (Sensor -> ESP32 Fuzzy Sugeno -> Antares -> Android)
 ├── paytrack/                 # Proyek 2: Paytrack (Personal Finance & Target Savings Tracker)
 │   ├── dashboard.png         # Screenshot asli Dashboard Overview dari repo GitHub
 │   ├── savings.png           # Screenshot asli Target-Driven Savings
@@ -45,9 +49,10 @@ public/projects/
 ├── mental-health-ml/         # Proyek 6: Mental Health Twitter Prediction (MLOps)
 │   ├── cover.svg             # Gambar sampul kartu proyek
 │   └── workflow.svg          # Diagram TFX Pipeline, Docker Serving, Prometheus & Grafana
-└── scribd-downloader/        # Proyek 7: Scribd Batch Downloader
-    ├── cover.svg             # Gambar sampul kartu proyek
-    └── workflow.svg          # Diagram otomatisasi ekstraksi dan kompilasi PDF
+└── scribd-downloader/        # Proyek 7: ScribdFetch (Neo-Brutalism Batch Downloader, Python, Selenium, Pillow)
+    ├── preview.png           # Screenshot nyata antarmuka desktop bergaya Neo-Brutalism
+    ├── workflow.svg          # Diagram arsitektur multi-threaded: Shell -> REST API -> Selenium/Requests -> Pillow PDF
+    └── cover.svg             # Gambar ilustrasi sistem pengarsipan batch PDF
 ```
 
 ## Cara Menambahkan atau Mengganti Gambar Proyek

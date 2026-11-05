@@ -1,34 +1,342 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
-  <rect width="800" height="450" fill="#0d1117"/>
-  <rect x="16" y="16" width="768" height="418" fill="#161b22" stroke="#22c55e" stroke-width="4"/>
-  <text x="40" y="54" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="20">DASHBOARD APLIKASI ANDROID AQUASEE (KOTLIN)</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 750" width="1100" height="750" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090f1d"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#162036"/>
+    </linearGradient>
 
-  <!-- Phone Frame 1 -->
-  <rect x="70" y="80" width="290" height="320" rx="8" fill="#0d1117" stroke="#38bdf8" stroke-width="3"/>
-  <text x="95" y="114" fill="#38bdf8" font-family="monospace" font-weight="bold" font-size="15">LIVE WATER QUALITY</text>
-  <rect x="95" y="130" width="240" height="68" fill="#1c2333" stroke="#30363d" stroke-width="2"/>
-  <text x="110" y="156" fill="#94a3b8" font-family="monospace" font-size="12">WATER TEMPERATURE</text>
-  <text x="110" y="182" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="20">27.4 °C [OPTIMAL]</text>
+    <!-- Phone 1 Cards Gradients -->
+    <linearGradient id="greenCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#76c834"/>
+      <stop offset="100%" stop-color="#4ea81f"/>
+    </linearGradient>
+    <linearGradient id="blueCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
 
-  <rect x="95" y="210" width="240" height="68" fill="#1c2333" stroke="#30363d" stroke-width="2"/>
-  <text x="110" y="236" fill="#94a3b8" font-family="monospace" font-size="12">ACIDITY LEVEL (pH)</text>
-  <text x="110" y="262" fill="#38bdf8" font-family="monospace" font-weight="bold" font-size="20">7.18 pH [STABLE]</text>
+    <!-- Phone Mockup Frame Shadow -->
+    <filter id="phoneShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#64748b" flood-opacity="0.12"/>
+    </filter>
+    <filter id="glowOrange" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowPink" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="phoneClip">
+      <rect width="360" height="680" rx="36"/>
+    </clipPath>
+  </defs>
 
-  <rect x="95" y="292" width="240" height="84" fill="#1c2333" stroke="#f97316" stroke-width="2"/>
-  <text x="110" y="318" fill="#f97316" font-family="monospace" font-weight="bold" font-size="13">FUZZY SUGENO ENGINE</text>
-  <text x="110" y="342" fill="#e6edf3" font-family="monospace" font-size="12">Last Pump Active: 38s</text>
-  <text x="110" y="362" fill="#22c55e" font-family="monospace" font-size="12">Sync: Antares IoT Cloud</text>
+  <!-- Canvas Background -->
+  <rect width="1100" height="750" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="2"/>
 
-  <!-- Hardware & Telemetry Log -->
-  <rect x="400" y="80" width="340" height="320" fill="#1c2333" stroke="#f97316" stroke-width="3"/>
-  <text x="424" y="114" fill="#f97316" font-family="monospace" font-weight="bold" font-size="15">HARDWARE &amp; ANTARES TELEMETRY</text>
-  <text x="424" y="150" fill="#e6edf3" font-family="monospace" font-size="13">&gt; MCU: ESP32 Dual-Core Wi-Fi</text>
-  <text x="424" y="176" fill="#e6edf3" font-family="monospace" font-size="13">&gt; Method: Orde-Nol Fuzzy Sugeno</text>
-  <text x="424" y="202" fill="#e6edf3" font-family="monospace" font-size="13">&gt; Target: Durasi Aktif Aktuator</text>
-  <text x="424" y="228" fill="#e6edf3" font-family="monospace" font-size="13">&gt; Cloud: Antares HTTP/MQTT</text>
-  <rect x="424" y="254" width="292" height="122" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
-  <text x="440" y="282" fill="#38bdf8" font-family="monospace" font-weight="bold" font-size="13">PENGUJIAN AKURASI (MAPE):</text>
-  <text x="440" y="308" fill="#e6edf3" font-family="monospace" font-size="12">• Uji respon sensor suhu &amp; pH</text>
-  <text x="440" y="330" fill="#e6edf3" font-family="monospace" font-size="12">• Validasi durasi relay pompa</text>
-  <text x="440" y="352" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="13">• Error MAPE Sangat Rendah</text>
+  <!-- Top Title Banner -->
+  <rect x="24" y="16" width="1052" height="54" rx="10" fill="#0b1324" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="44" y="42" fill="#38bdf8" font-size="16" font-weight="800" letter-spacing="1">📱 AQUASEE MOBILE APPLICATION (KOTLIN &amp; ANTARES IOT)</text>
+  <text x="44" y="58" fill="#94a3b8" font-size="11.5">Antarmuka asli: Tab Overview (Sensor &amp; Status Aktuator Real-Time) dan Tab Grafik Parameter Air (1415 Data Telemetri)</text>
+
+  <!-- ==================== PHONE 1: TAB OVERVIEW ==================== -->
+  <g transform="translate(130, 84)" filter="url(#phoneShadow)">
+    <!-- Outer Phone Body / Bezel -->
+    <rect width="366" height="646" rx="38" fill="#1e293b" stroke="#475569" stroke-width="3"/>
+    
+    <!-- Screen Container (Clipped) -->
+    <g transform="translate(3, 3)" clip-path="url(#phoneClip)">
+      <!-- App Background -->
+      <rect width="360" height="640" fill="#f8fafc"/>
+
+      <!-- Android Status Bar -->
+      <text x="22" y="22" fill="#1e293b" font-size="11" font-weight="700">20:23</text>
+      <circle cx="62" cy="18" r="2.5" fill="#64748b"/>
+      <path d="M 68 15 L 75 15 L 75 21 L 68 21 Z" fill="#64748b"/>
+      <!-- Status Icons Right -->
+      <path d="M 280 14 A 5 5 0 0 1 285 20 A 4 4 0 0 0 282 15 Z" fill="#64748b"/>
+      <rect x="290" y="16" width="2" height="6" fill="#64748b"/>
+      <rect x="294" y="14" width="2" height="8" fill="#64748b"/>
+      <rect x="298" y="12" width="2" height="10" fill="#64748b"/>
+      <rect x="302" y="10" width="2" height="12" fill="#64748b"/>
+      <rect x="312" y="11" width="24" height="11" rx="3" fill="none" stroke="#64748b" stroke-width="1.2"/>
+      <rect x="314" y="13" width="18" height="7" rx="1.5" fill="#22c55e"/>
+      <text x="323" y="20" fill="#ffffff" font-size="7" font-weight="800" text-anchor="middle">97</text>
+
+      <!-- Header -->
+      <text x="22" y="62" fill="#0f172a" font-size="22" font-weight="800">Overview</text>
+      <text x="22" y="80" fill="#64748b" font-size="13" font-weight="500">Aquasee Monitoring</text>
+
+      <!-- Carousel Cards: pH Level & Kekeruhan -->
+      <!-- pH Level Card (Green) -->
+      <g filter="url(#cardShadow)">
+        <rect x="20" y="96" width="235" height="110" rx="18" fill="url(#greenCard)"/>
+      </g>
+      <text x="36" y="126" fill="#ffffff" font-size="13" font-weight="600" opacity="0.95">pH Level</text>
+      <text x="36" y="168" fill="#ffffff" font-size="36" font-weight="800">7,31</text>
+      <text x="36" y="192" fill="#ffffff" font-size="13" font-weight="600" opacity="0.95">Netral</text>
+
+      <!-- Water Drop PH Icon on Green Card -->
+      <g transform="translate(186, 126)">
+        <path d="M 22 2 C 22 2 8 20 8 30 A 14 14 0 0 0 36 30 C 36 20 22 2 22 2 Z" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.85"/>
+        <text x="22" y="34" fill="#ffffff" font-size="10" font-weight="900" text-anchor="middle" opacity="0.95">PH</text>
+      </g>
+
+      <!-- Kekeruhan Card (Blue Partial) -->
+      <g filter="url(#cardShadow)">
+        <rect x="268" y="96" width="140" height="110" rx="18" fill="url(#blueCard)"/>
+      </g>
+      <text x="284" y="126" fill="#ffffff" font-size="13" font-weight="600" opacity="0.95">Kekeruhan</text>
+      <text x="284" y="168" fill="#ffffff" font-size="34" font-weight="800">0,0</text>
+      <text x="284" y="192" fill="#ffffff" font-size="13" font-weight="600" opacity="0.95">Jernih</text>
+
+      <!-- Section: Output Devices Status -->
+      <text x="22" y="238" fill="#0f172a" font-size="15" font-weight="700">Output Devices Status</text>
+
+      <!-- Grid 2x2: 4 Output Devices -->
+      <!-- Card 1: Pompa pH Up -->
+      <g filter="url(#cardShadow)">
+        <rect x="20" y="254" width="145" height="106" rx="16" fill="#ffffff"/>
+      </g>
+      <!-- Orange Glowing Up Triangle -->
+      <polygon points="46,275 36,290 56,290" fill="#f59e0b" filter="url(#glowOrange)"/>
+      <text x="36" y="318" fill="#64748b" font-size="12" font-weight="500">Pompa pH Up</text>
+      <text x="36" y="342" fill="#0f172a" font-size="15" font-weight="800">0,00 Detik</text>
+
+      <!-- Card 2: Pompa pH Down -->
+      <g filter="url(#cardShadow)">
+        <rect x="180" y="254" width="145" height="106" rx="16" fill="#ffffff"/>
+      </g>
+      <!-- Pink/Red Glowing Down Triangle -->
+      <polygon points="206,290 196,275 216,275" fill="#f43f5e" filter="url(#glowPink)"/>
+      <text x="196" y="318" fill="#64748b" font-size="12" font-weight="500">Pompa pH Down</text>
+      <text x="196" y="342" fill="#0f172a" font-size="15" font-weight="800">0,00 Detik</text>
+
+      <!-- Card 3: Pompa Air -->
+      <g filter="url(#cardShadow)">
+        <rect x="20" y="374" width="145" height="106" rx="16" fill="#ffffff"/>
+      </g>
+      <!-- Water Pump Icon (Blue Waves & Arrow) -->
+      <g transform="translate(36, 388)">
+        <rect x="2" y="4" width="12" height="14" rx="2" fill="#0284c7"/>
+        <path d="M 17 11 L 23 5 L 20 5 L 20 2 L 14 2 L 14 5 L 11 5 Z" fill="#0284c7"/>
+        <path d="M 2 22 Q 8 18 14 22 T 26 22" fill="none" stroke="#0284c7" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <text x="36" y="438" fill="#64748b" font-size="12" font-weight="500">Pompa Air</text>
+      <text x="36" y="462" fill="#0f172a" font-size="16" font-weight="800">3.0 Menit</text>
+
+      <!-- Card 4: Heater -->
+      <g filter="url(#cardShadow)">
+        <rect x="180" y="374" width="145" height="106" rx="16" fill="#ffffff"/>
+      </g>
+      <!-- Heater Flame Icon -->
+      <g transform="translate(196, 388)">
+        <rect x="0" y="0" width="22" height="22" rx="5" fill="none" stroke="#ea580c" stroke-width="2"/>
+        <path d="M 11 5 C 11 5 6 9 6 13 A 5 5 0 0 0 16 13 C 16 9 11 5 11 5 Z" fill="#ea580c"/>
+      </g>
+      <text x="196" y="438" fill="#64748b" font-size="12" font-weight="500">Heater</text>
+      <text x="196" y="458" fill="#0f172a" font-size="13.5" font-weight="800">0 menit 0</text>
+      <text x="196" y="474" fill="#0f172a" font-size="13.5" font-weight="800">detik</text>
+
+      <!-- Floating Bottom Nav Bar -->
+      <g filter="url(#cardShadow)">
+        <rect x="28" y="560" width="290" height="52" rx="26" fill="#ffffff"/>
+      </g>
+      <!-- Active Tab: Monitor (Blue) -->
+      <g transform="translate(100, 574)">
+        <rect x="0" y="0" width="22" height="16" rx="3" fill="none" stroke="#0284c7" stroke-width="2.2"/>
+        <rect x="8" y="16" width="6" height="4" fill="#0284c7"/>
+        <line x1="5" y1="20" x2="17" y2="20" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round"/>
+      </g>
+      <!-- Inactive Tab: Chart (Grey) -->
+      <g transform="translate(230, 576)">
+        <rect x="0" y="8" width="4" height="10" rx="1" fill="#cbd5e1"/>
+        <rect x="7" y="4" width="4" height="14" rx="1" fill="#cbd5e1"/>
+        <rect x="14" y="0" width="4" height="18" rx="1" fill="#cbd5e1"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== PHONE 2: TAB GRAFIK PARAMETER AIR ==================== -->
+  <g transform="translate(580, 84)" filter="url(#phoneShadow)">
+    <!-- Outer Phone Body / Bezel -->
+    <rect width="366" height="646" rx="38" fill="#1e293b" stroke="#475569" stroke-width="3"/>
+
+    <!-- Screen Container (Clipped) -->
+    <g transform="translate(3, 3)" clip-path="url(#phoneClip)">
+      <!-- App Background -->
+      <rect width="360" height="640" fill="#f8fafc"/>
+
+      <!-- Android Status Bar -->
+      <text x="22" y="22" fill="#1e293b" font-size="11" font-weight="700">20:23</text>
+      <circle cx="62" cy="18" r="2.5" fill="#64748b"/>
+      <path d="M 68 15 L 75 15 L 75 21 L 68 21 Z" fill="#64748b"/>
+      <path d="M 280 14 A 5 5 0 0 1 285 20 A 4 4 0 0 0 282 15 Z" fill="#64748b"/>
+      <rect x="290" y="16" width="2" height="6" fill="#64748b"/>
+      <rect x="294" y="14" width="2" height="8" fill="#64748b"/>
+      <rect x="298" y="12" width="2" height="10" fill="#64748b"/>
+      <rect x="302" y="10" width="2" height="12" fill="#64748b"/>
+      <rect x="312" y="11" width="24" height="11" rx="3" fill="none" stroke="#64748b" stroke-width="1.2"/>
+      <rect x="314" y="13" width="18" height="7" rx="1.5" fill="#22c55e"/>
+      <text x="323" y="20" fill="#ffffff" font-size="7" font-weight="800" text-anchor="middle">97</text>
+
+      <!-- Header: Title & Download Button -->
+      <text x="22" y="60" fill="#0f172a" font-size="20" font-weight="800">Grafik Parameter Air</text>
+      
+      <!-- Download Button -->
+      <rect x="20" y="74" width="138" height="30" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+      <path d="M 36 84 L 42 90 L 48 84" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="42" y1="80" x2="42" y2="89" stroke="#0f172a" stroke-width="1.8"/>
+      <line x1="36" y1="93" x2="48" y2="93" stroke="#0f172a" stroke-width="1.8"/>
+      <text x="54" y="94" fill="#0f172a" font-size="11" font-weight="600">Download Data</text>
+
+      <text x="22" y="120" fill="#64748b" font-size="11" font-weight="500">Semua data dimuat ✓ (1415 data)</text>
+
+      <!-- Chart Card 1: Grafik pH -->
+      <g filter="url(#cardShadow)">
+        <rect x="20" y="134" width="305" height="195" rx="16" fill="#ffffff"/>
+      </g>
+      <text x="36" y="156" fill="#0f172a" font-size="13.5" font-weight="700">Grafik pH</text>
+
+      <!-- Chart 1 Grid & Lines -->
+      <g transform="translate(42, 172)">
+        <!-- Horizontal Grid Lines -->
+        <line x1="20" y1="0" x2="260" y2="0" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="20" x2="260" y2="20" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="40" x2="260" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="60" x2="260" y2="60" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="80" x2="260" y2="80" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="100" x2="260" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+
+        <!-- Vertical Grid Lines -->
+        <line x1="60" y1="0" x2="60" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="100" y1="0" x2="100" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="140" y1="0" x2="140" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="180" y1="0" x2="180" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="220" y1="0" x2="220" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+
+        <!-- Y Axis Labels -->
+        <text x="14" y="4" fill="#64748b" font-size="9" text-anchor="end">7,6</text>
+        <text x="14" y="24" fill="#64748b" font-size="9" text-anchor="end">7,4</text>
+        <text x="14" y="44" fill="#64748b" font-size="9" text-anchor="end">7,2</text>
+        <text x="14" y="64" fill="#64748b" font-size="9" text-anchor="end">7,0</text>
+        <text x="14" y="84" fill="#64748b" font-size="9" text-anchor="end">6,8</text>
+        <text x="14" y="104" fill="#64748b" font-size="9" text-anchor="end">6,6</text>
+
+        <!-- X Axis Labels -->
+        <text x="20" y="116" fill="#64748b" font-size="9" text-anchor="middle">0</text>
+        <text x="60" y="116" fill="#64748b" font-size="9" text-anchor="middle">3</text>
+        <text x="100" y="116" fill="#64748b" font-size="9" text-anchor="middle">6</text>
+        <text x="140" y="116" fill="#64748b" font-size="9" text-anchor="middle">9</text>
+        <text x="180" y="116" fill="#64748b" font-size="9" text-anchor="middle">12</text>
+        <text x="220" y="116" fill="#64748b" font-size="9" text-anchor="middle">15</text>
+        <text x="250" y="116" fill="#64748b" font-size="9" text-anchor="middle">18</text>
+
+        <!-- Blue Data Line & Points -->
+        <polyline points="20,90 32,98 45,96 58,96 72,82 85,78 98,84 110,92 122,90 135,32 148,42 160,46 172,16 185,22 198,18 210,6 222,34 235,10 248,10 260,34" 
+                  fill="none" stroke="#0284c7" stroke-width="2"/>
+        <!-- Sample Markers -->
+        <circle cx="20" cy="90" r="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+        <circle cx="58" cy="96" r="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+        <circle cx="85" cy="78" r="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+        <circle cx="135" cy="32" r="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+        <circle cx="172" cy="16" r="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+        <circle cx="210" cy="6" r="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+        <circle cx="248" cy="10" r="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+        <circle cx="260" cy="34" r="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+
+        <!-- Legend -->
+        <rect x="24" y="128" width="8" height="8" fill="#0284c7"/>
+        <text x="38" y="135" fill="#334155" font-size="9" font-weight="600">pH Air</text>
+      </g>
+
+      <!-- Chart Card 2: Grafik NTU -->
+      <g filter="url(#cardShadow)">
+        <rect x="20" y="344" width="305" height="195" rx="16" fill="#ffffff"/>
+      </g>
+      <text x="36" y="366" fill="#0f172a" font-size="13.5" font-weight="700">Grafik NTU</text>
+
+      <!-- Chart 2 Grid & Lines -->
+      <g transform="translate(42, 382)">
+        <!-- Horizontal Grid Lines -->
+        <line x1="20" y1="0" x2="260" y2="0" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="20" x2="260" y2="20" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="40" x2="260" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="60" x2="260" y2="60" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="80" x2="260" y2="80" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="20" y1="100" x2="260" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+
+        <!-- Vertical Grid Lines -->
+        <line x1="60" y1="0" x2="60" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="100" y1="0" x2="100" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="140" y1="0" x2="140" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="180" y1="0" x2="180" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+        <line x1="220" y1="0" x2="220" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+
+        <!-- Y Axis Labels -->
+        <text x="14" y="4" fill="#64748b" font-size="9" text-anchor="end">100</text>
+        <text x="14" y="24" fill="#64748b" font-size="9" text-anchor="end">80</text>
+        <text x="14" y="44" fill="#64748b" font-size="9" text-anchor="end">60</text>
+        <text x="14" y="64" fill="#64748b" font-size="9" text-anchor="end">40</text>
+        <text x="14" y="84" fill="#64748b" font-size="9" text-anchor="end">20</text>
+        <text x="14" y="104" fill="#64748b" font-size="9" text-anchor="end">0</text>
+
+        <!-- X Axis Labels -->
+        <text x="20" y="116" fill="#64748b" font-size="9" text-anchor="middle">0</text>
+        <text x="60" y="116" fill="#64748b" font-size="9" text-anchor="middle">3</text>
+        <text x="100" y="116" fill="#64748b" font-size="9" text-anchor="middle">6</text>
+        <text x="140" y="116" fill="#64748b" font-size="9" text-anchor="middle">9</text>
+        <text x="180" y="116" fill="#64748b" font-size="9" text-anchor="middle">12</text>
+        <text x="220" y="116" fill="#64748b" font-size="9" text-anchor="middle">15</text>
+        <text x="250" y="116" fill="#64748b" font-size="9" text-anchor="middle">18</text>
+
+        <!-- Green Data Line & Points -->
+        <polyline points="20,100 32,100 45,100 58,100 72,100 85,100 98,100 110,100 122,100 135,0 148,0 160,0 172,100 185,50 198,20 210,0 222,100 235,100 248,100 260,100" 
+                  fill="none" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="20" cy="100" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="58" cy="100" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="110" cy="100" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="135" cy="0" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="148" cy="0" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="160" cy="0" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="172" cy="100" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="198" cy="20" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="210" cy="0" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="260" cy="100" r="3" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+
+        <!-- Legend -->
+        <rect x="24" y="128" width="8" height="8" fill="#16a34a"/>
+        <text x="38" y="135" fill="#334155" font-size="9" font-weight="600">Kekeruhan (NTU)</text>
+      </g>
+
+      <!-- Floating Bottom Nav Bar -->
+      <g filter="url(#cardShadow)">
+        <rect x="28" y="560" width="290" height="52" rx="26" fill="#ffffff"/>
+      </g>
+      <!-- Inactive Tab: Monitor (Grey) -->
+      <g transform="translate(100, 574)">
+        <rect x="0" y="0" width="22" height="16" rx="3" fill="none" stroke="#cbd5e1" stroke-width="2.2"/>
+        <rect x="8" y="16" width="6" height="4" fill="#cbd5e1"/>
+        <line x1="5" y1="20" x2="17" y2="20" stroke="#cbd5e1" stroke-width="2.2" stroke-linecap="round"/>
+      </g>
+      <!-- Active Tab: Chart (Red/Coral) -->
+      <g transform="translate(230, 576)">
+        <rect x="0" y="8" width="4" height="10" rx="1" fill="#f43f5e"/>
+        <rect x="7" y="4" width="4" height="14" rx="1" fill="#f43f5e"/>
+        <rect x="14" y="0" width="4" height="18" rx="1" fill="#f43f5e"/>
+      </g>
+    </g>
+  </g>
 </svg>

@@ -1,31 +1,154 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="900" height="450">
-  <rect width="900" height="450" fill="#0d1117"/>
-  <rect x="14" y="14" width="872" height="422" fill="#161b22" stroke="#22c55e" stroke-width="4"/>
-  <text x="38" y="52" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="20">CARA KERJA SCRIBD BATCH DOWNLOADER (OTOMATISASI PYTHON)</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="1100" height="640" font-family="'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif">
+  <defs>
+    <!-- Background -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#141c2e"/>
+    </linearGradient>
 
-  <rect x="40" y="100" width="250" height="200" fill="#1c2333" stroke="#38bdf8" stroke-width="3"/>
-  <text x="60" y="135" fill="#38bdf8" font-family="monospace" font-weight="bold" font-size="15">1. BATCH URL QUEUE</text>
-  <text x="60" y="170" fill="#e6edf3" font-family="monospace" font-size="13">• Input banyak URL</text>
-  <text x="60" y="195" fill="#e6edf3" font-family="monospace" font-size="13">• Validasi link &amp;</text>
-  <text x="60" y="215" fill="#e6edf3" font-family="monospace" font-size="13">  sanitasi judul</text>
-  <text x="60" y="245" fill="#94a3b8" font-family="monospace" font-size="12">• Antrean otomatis</text>
+    <!-- Neo-Brutalism Dropshadow Filter -->
+    <filter id="brutalShadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="4" dy="4" stdDeviation="0" flood-color="#000000" flood-opacity="1"/>
+    </filter>
+    <filter id="brutalShadowLg" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="6" dy="6" stdDeviation="0" flood-color="#000000" flood-opacity="1"/>
+    </filter>
 
-  <rect x="325" y="100" width="250" height="200" fill="#1c2333" stroke="#f97316" stroke-width="3"/>
-  <text x="345" y="135" fill="#f97316" font-family="monospace" font-weight="bold" font-size="15">2. SELENIUM RENDER</text>
-  <text x="345" y="170" fill="#e6edf3" font-family="monospace" font-size="13">• Auto-scroll tiap</text>
-  <text x="345" y="190" fill="#e6edf3" font-family="monospace" font-size="13">  halaman dokumen</text>
-  <text x="345" y="220" fill="#e6edf3" font-family="monospace" font-size="13">• Injeksi CSS untuk</text>
-  <text x="345" y="240" fill="#e6edf3" font-family="monospace" font-size="13">  menyembunyikan UI</text>
-  <text x="345" y="260" fill="#e6edf3" font-family="monospace" font-size="13">  pengganggu</text>
+    <!-- Markers for arrows -->
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#00e5ff"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#22c55e"/>
+    </marker>
+  </defs>
 
-  <rect x="610" y="100" width="250" height="200" fill="#1c2333" stroke="#22c55e" stroke-width="3"/>
-  <text x="630" y="135" fill="#22c55e" font-family="monospace" font-weight="bold" font-size="15">3. PILLOW COMPILER</text>
-  <text x="630" y="170" fill="#e6edf3" font-family="monospace" font-size="13">• Ekstraksi aset</text>
-  <text x="630" y="190" fill="#e6edf3" font-family="monospace" font-size="13">  halaman penuh</text>
-  <text x="630" y="220" fill="#e6edf3" font-family="monospace" font-size="13">• Konversi RGB &amp;</text>
-  <text x="630" y="240" fill="#e6edf3" font-family="monospace" font-size="13">  kompilasi PDF utuh</text>
+  <!-- Canvas Background -->
+  <rect width="1100" height="640" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="2"/>
 
-  <rect x="40" y="330" width="820" height="76" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
-  <text x="60" y="362" fill="#e6edf3" font-family="monospace" font-size="14">Menghemat waktu pengunduhan banyak dokumen referensi sekaligus dibanding proses manual satu per satu.</text>
-  <text x="60" y="386" fill="#38bdf8" font-family="monospace" font-size="14">Seluruh pemrosesan dilakukan secara terstruktur dengan penanganan error per dokumen.</text>
+  <!-- Header Banner -->
+  <rect x="24" y="20" width="1052" height="60" rx="8" fill="#ffe600" stroke="#000000" stroke-width="2.5" filter="url(#brutalShadow)"/>
+  <text x="44" y="47" fill="#000000" font-size="18" font-weight="900" letter-spacing="1">📚 SCRIBDFETCH — BATCH DOWNLOADER &amp; COMPILATION ARCHITECTURE</text>
+  <text x="44" y="67" fill="#000000" font-size="11.5" font-weight="600">Local Multi-Threaded Automation • Selenium Chrome WebDriver • Pillow PDF Assembly • Neo-Brutalism Shell</text>
+
+  <!-- ==================== LAYER 1: CLIENT & SHELL ==================== -->
+  <g transform="translate(24, 100)">
+    <rect width="320" height="490" rx="10" fill="#ffffff" stroke="#000000" stroke-width="2.5" filter="url(#brutalShadowLg)"/>
+    
+    <!-- Title Tab -->
+    <rect x="0" y="0" width="320" height="42" rx="8" fill="#ff5252" stroke="#000000" stroke-width="2.5"/>
+    <text x="16" y="27" fill="#ffffff" font-size="14" font-weight="900" letter-spacing="0.5">1. NEO-BRUTALISM UI &amp; SHELL</text>
+
+    <!-- Component 1: Desktop Shell -->
+    <rect x="16" y="56" width="288" height="68" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="78" fill="#0f172a" font-size="13" font-weight="800">🖥️ Desktop App Shell</text>
+    <text x="28" y="96" fill="#475569" font-size="11">Chrome / Edge dalam mode --app</text>
+    <text x="28" y="112" fill="#475569" font-size="11">Berjalan mandiri di http://127.0.0.1:5000</text>
+
+    <!-- Component 2: Batch Input -->
+    <rect x="16" y="140" width="288" height="96" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="162" fill="#0f172a" font-size="13" font-weight="800">📥 Batch Input &amp; Quick ID</text>
+    <text x="28" y="180" fill="#475569" font-size="11">• Multi-URL &amp; ID Dokumen (Baris Baru)</text>
+    <text x="28" y="196" fill="#475569" font-size="11">• Live Counter ("X Dokumen dalam Batch")</text>
+    <text x="28" y="212" fill="#475569" font-size="11">• Pintasan Cepat + Modal Tambah ID (LocalStorage)</text>
+    <text x="28" y="226" fill="#0284c7" font-size="10.5" font-weight="700">Pemisahan otomatis ID angka / slug URL</text>
+
+    <!-- Component 3: Live Progress & Terminal -->
+    <rect x="16" y="252" width="288" height="92" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="274" fill="#0f172a" font-size="13" font-weight="800">📊 Live Progress &amp; Console</text>
+    <text x="28" y="292" fill="#475569" font-size="11">• Progress Bar % &amp; Halaman (mis. Hal 12/48)</text>
+    <text x="28" y="308" fill="#475569" font-size="11">• Estimasi Kecepatan (MB/s) &amp; Live ETA</text>
+    <text x="28" y="324" fill="#475569" font-size="11">• Terminal Log Real-Time &amp; Tombol Batal</text>
+
+    <!-- Component 4: Local Archive Manager -->
+    <rect x="16" y="360" width="288" height="110" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="382" fill="#0f172a" font-size="13" font-weight="800">🗂️ Local File Archive Manager</text>
+    <text x="28" y="400" fill="#475569" font-size="11">• Tab Filter (Semua, Hari Ini, Bulan Ini)</text>
+    <text x="28" y="416" fill="#475569" font-size="11">• Pencarian Instan dengan &lt;mark&gt; Highlight</text>
+    <text x="28" y="432" fill="#475569" font-size="11">• Tombol Aksi: Buka PDF, Buka Folder, Hapus</text>
+    <text x="28" y="448" fill="#16a34a" font-size="10.5" font-weight="700">Kapasitas penyimpanan sesi terukur riil</text>
+  </g>
+
+  <!-- ==================== LAYER 2: LOCAL SERVER ==================== -->
+  <g transform="translate(374, 100)">
+    <rect width="320" height="490" rx="10" fill="#ffffff" stroke="#000000" stroke-width="2.5" filter="url(#brutalShadowLg)"/>
+    
+    <!-- Title Tab -->
+    <rect x="0" y="0" width="320" height="42" rx="8" fill="#00e5ff" stroke="#000000" stroke-width="2.5"/>
+    <text x="16" y="27" fill="#000000" font-size="14" font-weight="900" letter-spacing="0.5">2. HTTP SERVER &amp; API (app_server.py)</text>
+
+    <!-- Component 1: ThreadingHTTPServer -->
+    <rect x="16" y="56" width="288" height="74" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="78" fill="#0f172a" font-size="13" font-weight="800">⚡ ThreadingHTTPServer</text>
+    <text x="28" y="96" fill="#475569" font-size="11">Server HTTP Python multi-threaded</text>
+    <text x="28" y="112" fill="#475569" font-size="11">Melayani UI statis (HTML/CSS/JS) &amp; REST API</text>
+
+    <!-- Component 2: REST Endpoints -->
+    <rect x="16" y="146" width="288" height="154" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="168" fill="#0f172a" font-size="13" font-weight="800">🔌 REST API Endpoints</text>
+    <text x="28" y="190" fill="#0284c7" font-size="11" font-weight="700">POST /api/download</text>
+    <text x="36" y="204" fill="#475569" font-size="10.5">Menerima antrean batch dokumen</text>
+    <text x="28" y="222" fill="#0284c7" font-size="11" font-weight="700">GET /api/status</text>
+    <text x="36" y="236" fill="#475569" font-size="10.5">Polling progres, kecepatan, &amp; logs</text>
+    <text x="28" y="254" fill="#0284c7" font-size="11" font-weight="700">GET /api/history &amp; /api/storage-info</text>
+    <text x="36" y="268" fill="#475569" font-size="10.5">Mengembalikan daftar file &amp; kapasitas</text>
+    <text x="28" y="286" fill="#e11d48" font-size="11" font-weight="700">POST /api/cancel &amp; /api/open-folder</text>
+
+    <!-- Component 3: Worker Thread Dispatcher -->
+    <rect x="16" y="316" width="288" height="154" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="338" fill="#0f172a" font-size="13" font-weight="800">🧵 Async Thread Dispatcher</text>
+    <text x="28" y="358" fill="#475569" font-size="11">• Menjalankan proses unduhan di latar belakang</text>
+    <text x="28" y="374" fill="#475569" font-size="11">  (threading.Thread) agar antarmuka tidak freeze</text>
+    <text x="28" y="394" fill="#475569" font-size="11">• Pengelolaan status thread aktif &amp; queue</text>
+    <text x="28" y="410" fill="#475569" font-size="11">• Thread-safe state update callback</text>
+    <text x="28" y="430" fill="#16a34a" font-size="11" font-weight="700">Zero Blocking UI Experience</text>
+  </g>
+
+  <!-- ==================== LAYER 3: CORE LOGIC ==================== -->
+  <g transform="translate(724, 100)">
+    <rect width="352" height="490" rx="10" fill="#ffffff" stroke="#000000" stroke-width="2.5" filter="url(#brutalShadowLg)"/>
+    
+    <!-- Title Tab -->
+    <rect x="0" y="0" width="352" height="42" rx="8" fill="#00e676" stroke="#000000" stroke-width="2.5"/>
+    <text x="16" y="27" fill="#000000" font-size="14" font-weight="900" letter-spacing="0.5">3. DOWNLOADER LOGIC (downloader.py)</text>
+
+    <!-- Step 1: Selenium DOM & Title -->
+    <rect x="16" y="56" width="320" height="88" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="78" fill="#0f172a" font-size="13" font-weight="800">🌐 Selenium Chrome DOM Inspection</text>
+    <text x="28" y="96" fill="#475569" font-size="11">• Membuka dokumen via Chrome Headless</text>
+    <text x="28" y="112" fill="#475569" font-size="11">• Melewati proteksi Cloudflare / verifikasi bot</text>
+    <text x="28" y="128" fill="#0284c7" font-size="11" font-weight="700">Ekstraksi judul resmi dokumen secara otomatis</text>
+
+    <!-- Step 2: Chunk Page Download -->
+    <rect x="16" y="156" width="320" height="88" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="178" fill="#0f172a" font-size="13" font-weight="800">⚡ Parallel Chunk Image Extraction</text>
+    <text x="28" y="196" fill="#475569" font-size="11">• Unduh potongan gambar lembar beresolusi tinggi</text>
+    <text x="28" y="212" fill="#475569" font-size="11">• requests.Session dengan custom User-Agent</text>
+    <text x="28" y="228" fill="#475569" font-size="11">• Penyimpanan temporer di Scribd_Downloads/temp_images/</text>
+
+    <!-- Step 3: Pillow PDF Assembly -->
+    <rect x="16" y="256" width="320" height="96" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="278" fill="#0f172a" font-size="13" font-weight="800">📄 Pillow (PIL) PDF Compilation</text>
+    <text x="28" y="296" fill="#475569" font-size="11">• Konversi seluruh frame potongan menjadi RGB</text>
+    <text x="28" y="312" fill="#475569" font-size="11">• Penggabungan terurut menjadi 1 berkas PDF utuh</text>
+    <text x="28" y="328" fill="#475569" font-size="11">• Penamaan file bersih otomatis sesuai judul dokumen</text>
+    <text x="28" y="342" fill="#16a34a" font-size="10.5" font-weight="700">High-DPI Clean &amp; Searchable PDF Output</text>
+
+    <!-- Step 4: Verification & Auto-Cleanup -->
+    <rect x="16" y="364" width="320" height="106" rx="6" fill="#f8fafc" stroke="#000000" stroke-width="2" filter="url(#brutalShadow)"/>
+    <text x="28" y="386" fill="#0f172a" font-size="13" font-weight="800">🔒 SHA-256 Checksum &amp; Auto Cleanup</text>
+    <text x="28" y="404" fill="#475569" font-size="11">• Validasi integritas berkas via hashlib.sha256</text>
+    <text x="28" y="420" fill="#475569" font-size="11">• Pembuatan thumbnail visual (.thumbnails/)</text>
+    <text x="28" y="436" fill="#475569" font-size="11">• Simpan metadata riwayat (.metadata/*.json)</text>
+    <text x="28" y="452" fill="#e11d48" font-size="11" font-weight="700">🧹 Auto-Cleanup temp_images/ (Bebas Sampah)</text>
+  </g>
+
+  <!-- Connective Arrows -->
+  <line x1="344" y1="210" x2="374" y2="210" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrowAmber)"/>
+  <line x1="374" y1="260" x2="344" y2="260" stroke="#00e5ff" stroke-width="3" marker-end="url(#arrowCyan)"/>
+  <line x1="694" y1="220" x2="724" y2="220" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrowAmber)"/>
+  <line x1="724" y1="410" x2="694" y2="410" stroke="#22c55e" stroke-width="3" marker-end="url(#arrowGreen)"/>
 </svg>
