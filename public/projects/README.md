@@ -21,9 +21,17 @@ public/projects/
 │   ├── warning.png           # Screenshot asli Strict Transaction Validations
 │   ├── auth.png              # Screenshot asli Modal Authentication Supabase
 │   └── workflow.svg          # Diagram cara kerja Strict Wallet Accountability & RLS
-├── broiler-counter/          # Proyek 3: Broiler Counter (Jetpack Compose, MVVM, YOLOv8s)
-│   ├── cover.svg             # Visualisasi deteksi bounding box ayam broiler
-│   └── workflow.svg          # Diagram cara kerja kamera -> YOLOv8s -> MVVM -> Compose UI
+├── broiler-counter/          # Proyek 4: ChicKount (Jetpack Compose, MVVM, YOLOv8s TFLite, Room SQLite)
+│   ├── 01_app_overview_banner.png     # Banner overview aplikasi ChicKount
+│   ├── 02_logo_chickount_hd.png       # Logo resmi ChicKount HD
+│   ├── 03_screen_home_real.png        # Screenshot nyata HomeScreen (Statistik & Pindaian Terakhir)
+│   ├── 04_screen_scan_real.png        # Screenshot nyata ScanScreen (Live CameraX + Confidence Threshold)
+│   ├── 04_ui_screens_documentation.png # Dokumentasi fungsi 3 layar utama ChicKount
+│   ├── 05_screen_scan_tracking.png    # Screenshot tracking & bounding box ayam realtime
+│   ├── 06_screen_history_real.png     # Screenshot nyata HistoryScreen (Grafik 7 hari & Filter)
+│   ├── 07_ui_screens_showcase.png     # Showcase perbandingan 3 layar utama
+│   ├── 08_detection_sample_real.png   # Sampel hasil anotasi gambar (.jpg) populasi ayam
+│   └── workflow.svg                   # Diagram arsitektur MVVM + YOLOv8s TFLite + Room SQLite
 ├── duckdock/                 # Proyek 4: DuckDock (ESP32 Stream Deck, OLED SSD1306, 10 Buttons)
 │   ├── logo.svg              # Logo resmi DuckDock (Cyber-Duck + Stream Deck)
 │   ├── oled-states.svg       # Visualisasi 5 State layar OLED SSD1306 (128x64) + Pop-up Feedback

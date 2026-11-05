@@ -156,6 +156,124 @@ export const portfolioData = {
 
   projects: [
     {
+      slug: 'broiler-counter',
+      icon: '🐔',
+      title: 'CHICKOUNT (YOLOv8s AI)',
+      subtitle: 'Aplikasi Penghitung Populasi Ayam Otomatis Berbasis Computer Vision (Jetpack Compose, MVVM & Room)',
+      period: 'Proyek Android & On-Device Computer Vision • YOLOv8 TFLite',
+      role: 'Android Developer (Kotlin 2.2, Jetpack Compose, MVVM, CameraX, Room) & Computer Vision Engineer (YOLOv8s TFLite)',
+      shortDesc:
+        'Aplikasi mobile Android modern berbasis Jetpack Compose (Material 3) dan arsitektur MVVM yang menjalankan model deteksi objek YOLOv8-Small (best_small.tflite) secara on-device untuk menghitung populasi ayam secara realtime melalui CameraX maupun foto statis, dilengkapi penyimpanan lokal Room SQLite dan fitur auto-restore.',
+      problem:
+        'Peternak ayam kesulitan menghitung jumlah populasi ayam di dalam kandang secara manual karena jumlahnya yang banyak dan pergerakan ayam yang aktif, sehingga rentan terjadi kesalahan hitung (human error), memakan waktu lama, serta tidak memiliki pencatatan riwayat populasi yang terstruktur.',
+      solution:
+        'Mengembangkan aplikasi Android ChicKount menggunakan Jetpack Compose dengan arsitektur MVVM (Kotlin Coroutines & StateFlow) yang menjalankan inferensi model YOLOv8s TensorFlow Lite (XNNPACK multi-core CPU) secara langsung di perangkat. Aplikasi mendukung live camera preview dengan pengaturan ambang sensitivitas (-5% / +5%), menggambar anotasi bounding box ke file gambar lokal, menyimpan riwayat dan grafik mingguan di Room SQLite Database, serta menyediakan fitur Auto-Sync & Pemulihan Lokal.',
+      howItWorksSteps: [
+        'Pemindaian Realtime & Foto Statis (CameraX 1.4.1): Pengguna memindai kandang secara langsung melalui live camera preview atau mengambil foto statis di ScanScreen, lengkap dengan kontrol penyesuaian Confidence Threshold (-5% / +5%) sesuai pencahayaan kandang.',
+        'Preprocessing & Inferensi YOLOv8s TFLite (XNNPACK): Class ChickenDetection menormalisasi citra kamera menjadi tensor NCHW [1, 3, 640, 640] dan mengeksekusi model YOLOv8 best_small.tflite (44.7 MB) menggunakan TensorFlow Lite 2.17.0 multi-core CPU (XNNPACK SIMD) yang stabil.',
+        'Post-Processing & Non-Maximum Suppression (NMS): Menyaring kandidat kotak deteksi berdasarkan ambang keyakinan dan menjalankan algoritma NMS untuk mengeliminasi bounding box yang tumpang tindih sehingga setiap ekor ayam terhitung akurat.',
+        'Penyimpanan Anotasi Gambar & Auto-Sync Room SQLite: ImageStorageHelper menggambar bounding box dan persentase confidence ke file .jpg di penyimpanan internal (filesDir/scans/), lalu HistoryRepository mencatat metadata sesi ke Room Database (v2.8.5) dengan dukungan syncAndRestoreLocalScans.',
+        'Analitik Beranda, Grafik 7 Hari & Bagikan Laporan: HomeScreen dan HistoryScreen menyajikan statistik real-time (Hari Ini, Total Sesi, Rata-rata Ekor/Sesi), grafik distribusi mingguan (Sen–Min), filter waktu (Hari Ini/Minggu Ini/Semua), serta fitur Share Laporan di DetailHistoryScreen.',
+      ],
+      workflowDiagram: '/projects/broiler-counter/workflow.svg',
+      assetsFolder: '/public/projects/broiler-counter/',
+      coverImage: '/projects/broiler-counter/01_app_overview_banner.png',
+      assets: [
+        {
+          title: 'Banner Ikhtisar Aplikasi ChicKount',
+          src: '/projects/broiler-counter/01_app_overview_banner.png',
+          caption: 'Overview aplikasi ChicKount: penghitung populasi ayam otomatis berbasis AI (YOLOv8 TensorFlow Lite) dan Jetpack Compose.',
+          type: 'screenshot',
+        },
+        {
+          title: 'Showcase Antarmuka Layar Utama ChicKount',
+          src: '/projects/broiler-counter/07_ui_screens_showcase.png',
+          caption: 'Perbandingan tampilan antarmuka modern Material Design 3 pada Beranda (Home), Pemindaian Kamera AI (Scan), dan Riwayat (History).',
+          type: 'screenshot',
+        },
+        {
+          title: 'Dokumentasi Fitur & Navigasi Layar (UI Documentation)',
+          src: '/projects/broiler-counter/04_ui_screens_documentation.png',
+          caption: 'Penjelasan fungsi setiap elemen antarmuka pengguna pada ketiga layar utama aplikasi ChicKount.',
+          type: 'screenshot',
+        },
+        {
+          title: 'Hasil Deteksi & Tracking Ayam Realtime (YOLOv8s)',
+          src: '/projects/broiler-counter/05_screen_scan_tracking.png',
+          caption: 'Layar pemindaian kamera mendeteksi setiap ekor ayam secara simultan menggunakan bounding box hijau dan penghitung populasi real-time.',
+          type: 'screenshot',
+        },
+        {
+          title: 'Sampel Hasil Anotasi Bounding Box YOLOv8s pada Kandang',
+          src: '/projects/broiler-counter/08_detection_sample_real.png',
+          caption: 'Contoh hasil penyimpanan gambar anotasi (.jpg) dengan kotak deteksi dan skor keyakinan (confidence score) pada populasi ayam yang rapat.',
+          type: 'screenshot',
+        },
+        {
+          title: 'Tangkapan Layar Nyata: Beranda, Kamera Pindai AI, dan Riwayat',
+          src: '/projects/broiler-counter/04_screen_scan_real.png',
+          caption: 'Tangkapan layar langsung dari perangkat Android saat melakukan pemindaian live dengan pengaturan sensitivitas threshold.',
+          type: 'screenshot',
+        },
+        {
+          title: 'Layar Beranda (HomeScreen) Berbasis Data Room SQLite',
+          src: '/projects/broiler-counter/03_screen_home_real.png',
+          caption: 'Ringkasan statistik nyata: Hari Ini (Ekor), Total Sesi, Rata-rata (Ekor/Sesi), dan daftar Pindaian Terakhir.',
+          type: 'screenshot',
+        },
+        {
+          title: 'Layar Riwayat Pemindaian & Grafik Distribusi 7 Hari',
+          src: '/projects/broiler-counter/06_screen_history_real.png',
+          caption: 'Rekapitulasi total ayam terhitung, diagram batang mingguan (Sen–Min), serta filter waktu interaktif.',
+          type: 'screenshot',
+        },
+        {
+          title: 'Diagram Arsitektur MVVM, Jetpack Compose & YOLOv8s TFLite',
+          src: '/projects/broiler-counter/workflow.svg',
+          caption: 'Arsitektur lengkap ChicKount: UI Layer (Compose), ViewModel Layer (StateFlow), ChickenDetection (YOLOv8 TFLite), dan Room SQLite.',
+          type: 'diagram',
+        },
+      ],
+      metrics: [
+        {
+          label: 'On-Device AI Engine',
+          value: 'YOLOv8s TFLite 2.17',
+          detail: 'Inferensi tensor NCHW [1, 3, 640, 640] dengan akselerasi CPU multi-core XNNPACK SIMD dan algoritma NMS.',
+        },
+        {
+          label: 'Arsitektur & UI Modern',
+          value: 'Compose + MVVM',
+          detail: 'Dibangun dengan Kotlin 2.2, Jetpack Compose Material 3, CameraX 1.4.1, Coroutines, dan StateFlow.',
+        },
+        {
+          label: 'Persistensi & Auto-Sync',
+          value: 'Room SQLite 2.8.5',
+          detail: 'Penyimpanan permanen gambar anotasi bounding box (.jpg) dengan fitur syncAndRestoreLocalScans otomatis.',
+        },
+      ],
+      tags: [
+        'KOTLIN 2.2',
+        'JETPACK COMPOSE',
+        'MVVM ARCHITECTURE',
+        'YOLOv8s TFLITE',
+        'CAMERAX',
+        'ROOM SQLITE',
+        'COMPUTER VISION',
+      ],
+      links: [
+        {
+          label: 'GitHub Repo (ChicKount)',
+          url: 'https://github.com/MaulanaASetiawan/ChicKount',
+          external: true,
+        },
+        {
+          label: 'Download APK (v1.0)',
+          url: 'https://github.com/MaulanaASetiawan/ChicKount/blob/main/ChicKount-v1.0-debug.apk',
+          external: true,
+        },
+      ],
+    },
+    {
       slug: 'bitewise',
       icon: '🥗',
       title: 'BITEWISE',
@@ -402,69 +520,6 @@ export const portfolioData = {
         {
           label: 'Website',
           url: 'https://paytracks.vercel.app',
-          external: true,
-        },
-      ],
-    },
-    {
-      slug: 'broiler-counter',
-      icon: '🐔',
-      title: 'BROILER COUNTER (YOLOv8s)',
-      subtitle: 'Aplikasi Android Penghitung Jumlah Ayam Broiler Otomatis (Jetpack Compose & MVVM)',
-      period: 'Proyek Android & Computer Vision • On-Device AI',
-      role: 'Android Developer (Kotlin, Jetpack Compose, MVVM) & Computer Vision Engineer (YOLOv8s)',
-      shortDesc:
-        'Aplikasi mobile Android modern berbasis Jetpack Compose dan arsitektur MVVM yang mengintegrasikan model deteksi objek YOLOv8-Small (YOLOv8s) untuk mendeteksi dan menghitung jumlah ayam broiler secara otomatis dari citra kandang.',
-      problem:
-        'Peternak ayam broiler kesulitan menghitung jumlah populasi ayam di dalam kandang secara manual karena jumlahnya yang banyak dan pergerakan ayam yang aktif, sehingga rentan terjadi kesalahan hitung (human error) dan memakan waktu lama.',
-      solution:
-        'Mengembangkan aplikasi Android menggunakan Jetpack Compose dengan arsitektur bersih MVVM yang menjalankan model deteksi objek YOLOv8-small (YOLOv8s). Aplikasi mendeteksi setiap ekor ayam pada gambar/frame kamera, menggambar bounding box beserta nilai confidence, dan menampilkan total populasi ayam secara instan.',
-      howItWorksSteps: [
-        'Pengambilan Citra Kandang: Pengguna mengambil foto area kandang menggunakan kamera smartphone atau memilih gambar dari galeri melalui antarmuka Jetpack Compose.',
-        'Preprocessing Citra: Layer pemrosesan mengubah ukuran gambar dan menormalisasi piksel menjadi tensor input yang sesuai dengan dimensi model YOLOv8s.',
-        'Inferensi Model YOLOv8-Small: Model YOLOv8s mengekstraksi fitur visual dan memprediksi koordinat bounding box beserta skor probabilitas untuk setiap ayam broiler.',
-        'Post-Processing & Non-Maximum Suppression (NMS): Menyaring bounding box yang tumpang tindih agar setiap ekor ayam hanya dihitung tepat satu kali.',
-        'Manajemen State MVVM & Render UI: ViewModel memperbarui UI State secara reaktif (StateFlow) untuk merender overlay kotak deteksi dan jumlah total ayam di layar Jetpack Compose.',
-      ],
-      workflowDiagram: '/projects/broiler-counter/workflow.svg',
-      assetsFolder: '/public/projects/broiler-counter/',
-      coverImage: '/projects/broiler-counter/cover.svg',
-      assets: [
-        {
-          title: 'Ikhtisar Deteksi Ayam Broiler dengan YOLOv8s',
-          src: '/projects/broiler-counter/cover.svg',
-          caption: 'Visualisasi deteksi bounding box ayam broiler menggunakan model YOLOv8-small pada antarmuka Android Jetpack Compose.',
-          type: 'screenshot',
-        },
-        {
-          title: 'Diagram Alur Kerja (Jetpack Compose + MVVM + YOLOv8s)',
-          src: '/projects/broiler-counter/workflow.svg',
-          caption: 'Tahapan dari input citra kandang, inferensi YOLOv8s + NMS, pengelolaan state MVVM, hingga tampilan hasil hitung.',
-          type: 'diagram',
-        },
-      ],
-      metrics: [
-        {
-          label: 'Model Deteksi Objek',
-          value: 'YOLOv8-Small',
-          detail: 'Keseimbangan optimal antara akurasi deteksi ayam yang rapat dan kecepatan inferensi di perangkat mobile.',
-        },
-        {
-          label: 'Arsitektur Aplikasi',
-          value: 'MVVM + Compose',
-          detail: 'Pemisahan bersih antara UI deklaratif Jetpack Compose, ViewModel state management, dan ML inference engine.',
-        },
-        {
-          label: 'Dampak Lapangan',
-          value: 'Hitung Cepat & Objektif',
-          detail: 'Memangkas waktu perhitungan populasi ayam kandang dari hitungan manual menjadi beberapa detik.',
-        },
-      ],
-      tags: ['KOTLIN', 'JETPACK COMPOSE', 'MVVM', 'YOLOv8s', 'COMPUTER VISION', 'ANDROID'],
-      links: [
-        {
-          label: 'GitHub Profile',
-          url: 'https://github.com/MaulanaASetiawan',
           external: true,
         },
       ],
